@@ -67,13 +67,15 @@ let connectionFunctions = {
   addRow: (vocabulary) => {
     sqlQuery = `INSERT INTO ${sqlDatabase} (finnishWord, englishWord, category) VALUES (?, ?, ?)`;
     const newWord = [vocabulary.finnishWord, vocabulary.englishWord, vocabulary.category];
-
+console.log(vocabulary.finnishWord);
+console.log(vocabulary.englishWord);
+console.log(vocabulary.category);
     const addNew = (resolve, reject) => {
-      connection.query(sqlQuery, newWord, (error, vocabulary) => {
+      connection.query(sqlQuery, newWord, (error, _vocabulary) => {
         if (error) {
           reject(error);
         } else {
-          resolve(vocabulary);
+          resolve(_vocabulary);
         }
       });
     };
