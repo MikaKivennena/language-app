@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
 const vocabulary = require('./vocabulary.js')
-const database = require('./databaseFunctions.js')
+const database = require('./database.js')
+const port = process.env.PORT || 3010;
 
 app.use('/vocabulary', vocabulary)
 app.use(express.static("frontend/build"));
@@ -12,8 +13,8 @@ vocabulary.use((req, res) => {
     next();
 });
 
-const server = app.listen(3000, () => {
-  console.log(`Listening on port 3000`);
+const server = app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
 });
 
 
