@@ -12,7 +12,6 @@ const schema = {
     }
 };
 
-
 vocabulary.use(express.json());
 
 vocabulary.get('/', async (req, res) => {
@@ -30,7 +29,11 @@ vocabulary.post('/', async (req, res) => {
         const newWord = {
             finnishWord: req.body.finnishWord,
             englishWord: req.body.englishWord,
+            category: req.body.category,
         };
+        console.log("finnishWord: " + req.body.finnishWord)
+        console.log("englishWord:" + req.body.englishWord)
+        console.log("category: "+req.body.category)
         const result = await database.addRow(newWord);
         res.status(201).send(result);
     } else {
