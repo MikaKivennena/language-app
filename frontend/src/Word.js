@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import Score from './Score';
 
 const Word = (props) => {
     const[word, setWord] = useState('');
@@ -11,7 +12,7 @@ const Word = (props) => {
     }
     return(
         <div>
-        <label>{props.word} = </label>
+        <label>{props.originalWord} = </label>
         <input
         required
         type="text"
