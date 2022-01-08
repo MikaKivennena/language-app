@@ -4,16 +4,17 @@ import UserView from './UserView';
 import AdminView from './AdminView';
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="header">
         <h1>
           Learn Language App
         </h1>
-      </header>
-      <BrowserRouter>
+      </div>
+    <BrowserRouter>
     <div className="navigation">
-      <NavLink to="/main" className="link">
+      <NavLink to="main/" className="link">
         Main
       </NavLink>
       <NavLink to="/user" className="link">
@@ -24,7 +25,6 @@ function App() {
       </NavLink>
     </div>
     <Routes>
-      <Route path="/" element={<App />} />
       <Route path="/user" element={<UserView />} />
       <Route path="/admin" element={<AdminView />} />
     </Routes>
