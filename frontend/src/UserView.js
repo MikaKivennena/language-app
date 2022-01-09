@@ -13,12 +13,7 @@ function UserView () {
   },);
 
   return(
-    <div className="App">
-      <header className="App-header">
-        <h1>
-          Learn Language App
-        </h1>
-      </header>
+    <div className="userview">
       {wordsArray.map((word) => {
       return (
         <div>
