@@ -2,7 +2,7 @@ function AdminView() {
 
 
     return(
-        <div>
+        <div className="adminview">
             <h1>Temporary admin view</h1>
         </div>
     )
