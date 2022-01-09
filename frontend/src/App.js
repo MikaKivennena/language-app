@@ -6,28 +6,28 @@ import AdminView from './AdminView';
 function App() {
 
   return (
-    <div className="App">
-      <div className="header">
-        <h1>
-          Learn Language App
-        </h1>
+
+    <div className="container">
+      <div className="App-header">
+      <h1>Learn Language App</h1>
       </div>
     <BrowserRouter>
-    <div className="navigation">
-      <NavLink to="main/" className="link">
-        Main
-      </NavLink>
-      <NavLink to="/user" className="link">
+    <div className="links">
+      <ul>
+      <li><NavLink to="/user" className="link">
         User
-      </NavLink>
-      <NavLink to="/admin" className="link">
+      </NavLink></li>
+      <li><NavLink to="/admin" className="link">
         Admin
-      </NavLink>
+      </NavLink></li>
+      </ul>
     </div>
+    <div className="content">
     <Routes>
       <Route path="/user" element={<UserView />} />
       <Route path="/admin" element={<AdminView />} />
     </Routes>
+    </div>
   </BrowserRouter>
   </div>
   );
