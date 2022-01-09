@@ -18,7 +18,7 @@
 }
 
 .userview, .adminview {
-  background-color:firebrick;
+  background-color:rgb(25, 34, 51);
   padding: 20px;
   height: 100vh;
   width: 100vw;
