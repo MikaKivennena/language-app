@@ -1,9 +1,12 @@
-.App {
-  text-align: center;
+* {
+  padding: 0px;
+  margin: 0px;
+  color: ghostwhite;
+  background-color: #31363f;
 }
 
+
 .App-header {
-  background-color: #282c34;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
@@ -11,10 +14,71 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 10px;
 }
 
-body {
-  background-color: #31363f;
-  color: whitesmoke;
+.userview, .adminview {
+  background-color:firebrick;
+  padding: 20px;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  text-align: center;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+li.links {
+  width: 100%;
+  font-size: 3em;
+}
+
+.main li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+input, textarea{
+  background-color: white;
+  color:black;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-areas: "App-header" "links" "pagecontent";
+}
+
+.links {
+  background-color: rgb(43, 72, 85);
+  grid-area: links;
+  text-align: center;
+}
+.links li{
+  display: inline;
+  padding: 10px;
+  font-size: 0.5em;
+}
+.content {
+  background-color: rgb(43, 72, 85);
+  grid-area: pagecontent;
+}
+
+.link {
+  font-size: 3em;
+  font-family: arial;
+  color: white;
+  background-color: rgb(43, 72, 85);
+  text-decoration: none;
+}
+.addButton {
+  background-color: rgb(101, 135, 151);
+  padding: 3px;
+}
+.taskInput{
+  color: black;
+}
+.link:hover {
+  color: white;
+  background-color: rgb(24, 45, 48);
 }
 
