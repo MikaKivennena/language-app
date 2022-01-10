@@ -27,8 +27,8 @@ function AdminView() {
       },window.location.reload(false))
     }
 
-    const handleClick = () => {
-      fetch('http://localhost:3010/vocabulary' + wordsArray.id, {
+    const handleClick = (thisid) => {
+      fetch('http://localhost:3010/vocabulary/' + thisid, {
           method: 'DELETE'
       })
   }
@@ -69,6 +69,7 @@ function AdminView() {
 
         <div className="deleteWord">
         {wordsArray.map((word, index) => {   <button onClick={handleClick}>delete</button>
+
       return (
         <div>
           <table>
@@ -83,7 +84,7 @@ function AdminView() {
               <td>{word.englishWord}</td>
               <td>{word.finnishWord}</td>
               <td>{word.category}</td>
-              <td><button className="deleteButton" onClick={handleClick}>X</button></td>
+              <td><button className="deleteButton" onClick={() => handleClick(word.id)}>X</button></td>
             </tr>
           </table>
         </div>
