@@ -1,0 +1,48 @@
+.adminview {
+    background-color:rgb(25, 34, 51);
+    padding: 20px;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+
+  input, textarea{
+    background-color: white;
+    color:black;
+  }
+
+  .admincont {
+    display: grid;
+    grid-template-columns: 50%;
+    grid-template-areas: "addw delete";
+  }
+
+  .addWord {
+    background-color: rgb(43, 72, 85);
+    grid-area: addw;
+    text-align: center;
+    width:100%;
+  }
+
+  .deleteWord {
+    background-color: rgb(43, 72, 85);
+    grid-area: delete;
+    overflow-y: scroll;
+    width: 100%;
+  }
+
+  table, th, td {
+      border: 1px solid black;
+      margin: 5px;
+      width: 100%;
+  }
+
+  .deleteButton {
+      border: 2px solid white;
+      background-color: firebrick;
+      color: white;
+      font-size: 20px;
+  }
