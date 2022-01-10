@@ -70,10 +70,6 @@ input, textarea{
   background-color: rgb(43, 72, 85);
   text-decoration: none;
 }
-.addButton {
-  background-color: rgb(101, 135, 151);
-  padding: 3px;
-}
 .taskInput{
   color: black;
 }
