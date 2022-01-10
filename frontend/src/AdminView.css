@@ -25,6 +25,7 @@
     grid-area: addw;
     text-align: center;
     width:100%;
+    padding: 10px;
   }
 
   .deleteWord {
@@ -32,6 +33,7 @@
     grid-area: delete;
     overflow-y: scroll;
     width: 100%;
+    padding: 10px;
   }
 
   table, th, td {
@@ -39,6 +41,14 @@
       margin: 5px;
       width: 100%;
   }
+
+  .addButton {
+    background-color: rgb(101, 135, 151);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-top: 30px;
+}
 
   .deleteButton {
       border: 2px solid white;
