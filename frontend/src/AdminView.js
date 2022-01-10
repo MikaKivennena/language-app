@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import "./AdminView.css";
 
 function AdminView() {
 
     const [englishWord, setEnglishWord] = useState('');
     const [finnishWord, setFinnishWord] = useState('');
     const [category, setCategory] = useState('');
+
+  const url = "http://localhost:3010/vocabulary"
+  const[wordsArray, setWordsArray] = useState([]);
+  useEffect(() => {
+    fetch(url)
+    .then(response => response.json())
+    .then(res => setWordsArray(res))
+    .catch(err => console.log(err));
+  },);
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -17,11 +27,19 @@ function AdminView() {
       },window.location.reload(false))
     }
 
+    const handleClick = () => {
+      fetch('http://localhost:3010/vocabulary' + wordsArray.id, {
+          method: 'DELETE'
+      })
+  }
+
     return (
       <div className="adminview">
+        <div className="admincont">
+        <div classname="addWord">
         <h2>Add a new word paird to database</h2>
         <form onSubmit={handleSubmit}>
-          <label>english word</label><br/>
+          <label>English word</label><br/>
           <input
             type="text"
             required
@@ -37,7 +55,7 @@ function AdminView() {
             onChange={(e) => setFinnishWord(e.target.value)}
           />
           <br/>
-          <label>category</label><br/>
+          <label>Category</label><br/>
           <input
             type="text"
             required
@@ -47,6 +65,32 @@ function AdminView() {
           <br/>
           <button className="addButton" >Add to database</button>
         </form>
+        </div>
+
+        <div className="deleteWord">
+        {wordsArray.map((word, index) => {   <button onClick={handleClick}>delete</button>
+      return (
+        <div>
+          <table>
+            <tr>
+              <th>English</th>
+              <th>Finnish</th>
+              <th>Category</th>
+              <th>Delete</th>
+            </tr>
+
+            <tr>
+              <td>{word.englishWord}</td>
+              <td>{word.finnishWord}</td>
+              <td>{word.category}</td>
+              <td><button className="deleteButton" onClick={handleClick}>X</button></td>
+            </tr>
+          </table>
+        </div>
+      )
+    })}
+ </div>
+        </div>
       </div>
     );
 }
