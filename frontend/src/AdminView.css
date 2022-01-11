@@ -21,7 +21,6 @@
   }
 
   .addWord {
-    background-color: rgb(43, 72, 85);
     grid-area: addw;
     text-align: center;
     width:100%;
@@ -29,9 +28,9 @@
   }
 
   .deleteWord {
-    background-color: rgb(43, 72, 85);
     grid-area: delete;
     overflow-y: scroll;
+    overflow-x:hidden;
     width: 100%;
     padding: 10px;
   }
@@ -39,11 +38,13 @@
   table, th, td {
       border: 1px solid black;
       margin: 5px;
-      width: 100%;
+      width: 80%;
   }
 
   .addButton {
-    background-color: rgb(101, 135, 151);
+    background-color: rgb(185, 218, 233);
+    color: black;
+    font-weight: bold;
     padding: 15px;
     border-radius: 10px;
     font-size: 15px;
@@ -51,8 +52,21 @@
 }
 
   .deleteButton {
-      border: 2px solid white;
+      border: 1px solid white;
       background-color: firebrick;
       color: white;
       font-size: 20px;
+      border-radius: 5px;
+  }
+
+  .corr {
+    color: green;
+    border-radius: 10px;
+    margin: 5px;
+  }
+
+  .fals {
+    color: red;
+    border-radius: 5px;
+    margin: 5px;
   }
