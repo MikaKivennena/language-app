@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import './AdminView.css';
+
 const Word = (props) => {
     const[word, setWord] = useState('');
     const[guessState, setGuessState] = useState("________");
