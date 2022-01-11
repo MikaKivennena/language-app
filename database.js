@@ -12,6 +12,7 @@ const connection = mysql.createPool({
   database: process.env.DB_DB
 })
 
+const database = "vocabulary";
 /** Contains all connection functions using connection pool. */
 let connectionFunctions = {
   connect: () => {
@@ -30,7 +31,7 @@ let connectionFunctions = {
   /** Shutdown connection */
   close: () => {
     const closeConnection = (resolve, reject) => {
-      connection.release((error, success) => {
+      connection.close((error, success) => {
         if (error) {
           reject(error);
         } else {
@@ -40,6 +41,21 @@ let connectionFunctions = {
     };
     return new Promise(closeConnection);
   },
+
+  getAll: () => {
+    const sqlGetAll = (resolve, reject) => {
+      connection.query(`SELECT * FROM ${database}`, (error, vocabulary) => {
+        if(error) {
+          reject(error);
+        } else {
+          resolve(vocabulary);
+        }
+        connectionFunctions.close;
+      });
+    };
+    return new Promise(sqlGetAll);
+  },
+
 /** Gets word pairs from database by the given ID. Simple SQL query */
   getById: (id) => {
     const sqlGetById = (resolve, reject) => {
@@ -56,7 +72,7 @@ let connectionFunctions = {
 
   /** Adds new row into the table with values given in frontend. */
   addRow: (vocabulary) => {
-    sqlQuery = `INSERT INTO vocabulary (finnishWord, englishWord, category) VALUES (?, ?, ?)`;
+    sqlQuery = `INSERT INTO ${database} (finnishWord, englishWord, category) VALUES (?, ?, ?)`;
     const newWord = [vocabulary.finnishWord, vocabulary.englishWord, vocabulary.category];
 
     const addNew = (resolve, reject) => {
