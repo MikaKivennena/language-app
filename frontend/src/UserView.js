@@ -6,7 +6,6 @@ function UserView () {
 
   const url = "http://localhost:3010/vocabulary"
   const[wordsArray, setWordsArray] = useState([]);
-  const[score, setScore] = useState(0);
 
   useEffect(() => {
     fetch(url)
