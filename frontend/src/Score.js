@@ -1,11 +1,11 @@
 import {useState} from 'react';
 
 const Score = (props) => {
-    const[score, setScore] = useState(props.score);
+    const[score, setScore] = useState(score + props.score);
 
     return(
         <div>
-        <p>{score}/10</p>
+        <p>{score}/{props.maxAmount}</p>
         </div>
     );
 }
