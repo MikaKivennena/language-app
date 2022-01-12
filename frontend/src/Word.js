@@ -1,10 +1,11 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import './AdminView.css';
 
 const Word = (props) => {
     const[word, setWord] = useState('');
     const[guessState, setGuessState] = useState("________");
     const[nameClass, setClassName] = useState("");
+    /**Check the user anser. If correct. Switch state to green correct text. If false, red wrong text */
     const checkWord = () => {
         if(props.correctWord === word.toLowerCase()) {
             setGuessState("Correct!")
@@ -14,7 +15,11 @@ const Word = (props) => {
             setClassName("fals");
         }
     }
+
     return(
+        /**Creates a single table row out of word pairs and add button to check if the answer is correct.
+         * The button also adjusts the nameClass which sets corrrect or wrong texts to page.
+         */
         <div>
         <table>
         <div>
@@ -37,6 +42,7 @@ const Word = (props) => {
         </div>
             </table>
         </div>
+
     );
 }
 

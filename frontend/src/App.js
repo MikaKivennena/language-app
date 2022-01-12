@@ -6,7 +6,7 @@ import AdminView from './AdminView';
 function App() {
 
   return (
-
+/** Container contains grid layout with app-header taking top and content taking the rest of the screen */
     <div className="container">
       <div className="App-header">
       <h1>Learn Language App</h1>

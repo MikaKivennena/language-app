@@ -15,16 +15,18 @@ const schema = {
 
 vocabulary.use(express.json());
 
+/** Gets all the word pairs from database */
 vocabulary.get('/', async (req, res) => {
     const result = await database.getAll();
     res.status(200).send(result);
 })
 
+/**Gets word pairs by id */
 vocabulary.get('/:id([0-9]+)', async (req, res) => {
     const result = await database.getById(req.params.id);
     res.status(200).send(result);
 });
-
+/** This adds new rows to table useing database function addRow */
 vocabulary.post('/', async (req, res) => {
     if (valiObj.validate(req.body, schema)) {
         const newWord = {
@@ -38,7 +40,7 @@ vocabulary.post('/', async (req, res) => {
         res.status(400).send('Please enter a word');
     }
 });
-
+/**Deletes word pairs from databse with given id */
 vocabulary.delete('/:id([0-9]+)', async (req, res) => {
     let result = await database.deleteById(req.params.id);
     res.status(200).send(result);
