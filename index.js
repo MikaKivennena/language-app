@@ -19,7 +19,7 @@ const server = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-
+/** Kill connection function that puts out console log messages */
 const killConnection = () => {
   console.log("Closing connection..");
   server.close(() => {
