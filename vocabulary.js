@@ -4,6 +4,7 @@ const Validator = require("jsonschema").Validator;
 const valiObj = new Validator();
 const database = require('./database.js')
 
+/** Schema to make sure user gives a string. This could be improved, I just ran out of time. */
 const schema = {
     properties: {
         finnishWord: { type: "string" },
@@ -17,7 +18,7 @@ vocabulary.use(express.json());
 vocabulary.get('/', async (req, res) => {
     const result = await database.getAll();
     res.status(200).send(result);
-});
+})
 
 vocabulary.get('/:id([0-9]+)', async (req, res) => {
     const result = await database.getById(req.params.id);
@@ -31,9 +32,6 @@ vocabulary.post('/', async (req, res) => {
             englishWord: req.body.englishWord,
             category: req.body.category,
         };
-        console.log("finnishWord: " + req.body.finnishWord)
-        console.log("englishWord:" + req.body.englishWord)
-        console.log("category: "+req.body.category)
         const result = await database.addRow(newWord);
         res.status(201).send(result);
     } else {
