@@ -11,6 +11,7 @@ function App() {
       <div className="App-header">
       <h1>Learn Language App</h1>
       </div>
+      {/* Create navigation links for User and Admin view each. */}
     <BrowserRouter>
     <div className="links">
       <ul>
@@ -23,6 +24,7 @@ function App() {
       </ul>
     </div>
     <div className="content">
+      {/* Create paths to user and admin components and call for the component */}
     <Routes>
       <Route path="/user" element={<UserView />} />
       <Route path="/admin" element={<AdminView />} />
@@ -31,9 +33,6 @@ function App() {
   </BrowserRouter>
   </div>
   );
-
-
-
 }
 
 export default App;
