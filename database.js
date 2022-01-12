@@ -42,6 +42,7 @@ let connectionFunctions = {
     return new Promise(closeConnection);
   },
 
+  /**Get all the words from vocabulary table */
   getAll: () => {
     const sqlGetAll = (resolve, reject) => {
       connection.query(`SELECT * FROM ${database}`, (error, vocabulary) => {
