@@ -2,38 +2,40 @@ import { useState, useEffect } from "react";
 import "./AdminView.css";
 
 function AdminView() {
-
+    /**Set states for three required inputs for new word pairs to be saved into database */
     const [englishWord, setEnglishWord] = useState('');
     const [finnishWord, setFinnishWord] = useState('');
     const [category, setCategory] = useState('');
 
-  const url = "http://localhost:3010/vocabulary"
+  const url = "http://localhost:3010/vocabulary/"
   const[wordsArray, setWordsArray] = useState([]);
+  /**Immediately fetches words from database and parses them into a wordArray */
   useEffect(() => {
     fetch(url)
     .then(response => response.json())
     .then(res => setWordsArray(res))
     .catch(err => console.log(err));
   },);
-
+    /**This makes the button submit the given info to database */
     const handleSubmit = (e) => {
       e.preventDefault();
       const task = {englishWord, finnishWord, category };
 
-      fetch('http://localhost:3010/vocabulary', {
+      fetch(url, {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(task)
       },window.location.reload(false))
     }
-
+    /**Makes the delete button actually delete stuff */
     const handleClick = (thisid) => {
-      fetch('http://localhost:3010/vocabulary/' + thisid, {
+      fetch(url + thisid, {
           method: 'DELETE'
       })
   }
 
     return (
+      /**These divs could be simplifed by dividing the app to few more components.*/
       <div className="adminview">
         <div className="admincont">
         <div classname="addWord">
@@ -66,10 +68,11 @@ function AdminView() {
           <button className="addButton" >Add to database</button>
         </form>
         </div>
-
         <div className="deleteWord">
         {wordsArray.map((word, index) => {   <button onClick={handleClick}>delete</button>
-
+      /**Create multiple tables with wordpairs so it's easier to distinghuish which word is english and which one is finnish.
+       * Probably not the best solution, but I thought it worked well at the time.
+       */
       return (
         <div>
           <table>
