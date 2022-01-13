@@ -7,7 +7,7 @@ function AdminView() {
     const [finnishWord, setFinnishWord] = useState('');
     const [category, setCategory] = useState('');
 
-  const url = "vocabulary"
+  const url = "vocabulary/"
   const[wordsArray, setWordsArray] = useState([]);
   /**Immediately fetches words from database and parses them into a wordArray */
   useEffect(() => {
@@ -29,7 +29,7 @@ function AdminView() {
     }
     /**Makes the delete button actually delete stuff */
     const handleClick = (thisid) => {
-      fetch(url + thisid, {
+      fetch(url +  thisid, {
           method: 'DELETE'
       })
   }
@@ -39,7 +39,7 @@ function AdminView() {
       <div className="adminview">
         <div className="admincont">
         <div classname="addWord">
-        <h2>Add a new word paird to database</h2>
+        <h2>Add a new word pair to database</h2>
         <form onSubmit={handleSubmit}>
           <label>English word</label><br/>
           <input

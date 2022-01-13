@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react';
 
 function UserView () {
 
-  const url = "vocabulary"
+  const url = "vocabulary/"
   const[wordsArray, setWordsArray] = useState([]);
   /** fetch words form database and add them to wordsArray */
   useEffect(() => {
