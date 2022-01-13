@@ -7,7 +7,7 @@ function AdminView() {
     const [finnishWord, setFinnishWord] = useState('');
     const [category, setCategory] = useState('');
 
-  const url = "vocabulary/"
+  const url = "vocabulary/" || "http://localhost:3010/vocabulary"
   const[wordsArray, setWordsArray] = useState([]);
   /**Immediately fetches words from database and parses them into a wordArray */
   useEffect(() => {
