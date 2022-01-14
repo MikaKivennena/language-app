@@ -15,6 +15,17 @@ vocabulary.use((req, res) => {
     next();
 });
 
+app.get("/*", async (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "frontend/build/index.html"),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+  );
+});
+
 const server = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
