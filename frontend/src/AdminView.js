@@ -29,7 +29,7 @@ function AdminView() {
     }
     /**Makes the delete button actually delete stuff */
     const handleClick = (thisid) => {
-      fetch(url +  thisid, {
+      fetch(url + '/' + thisid, {
           method: 'DELETE'
       })
   }
