@@ -46,7 +46,7 @@ vocabulary.delete('/:id([0-9]+)', async (req, res) => {
     res.status(200).send(result);
 });
 
-app.get("/*", async (req, res) => {
+vocabulary.get("/*", async (req, res) => {
     res.sendFile(
         path.join(__dirname, "frontend/build/index.html"),
         function (err) {
