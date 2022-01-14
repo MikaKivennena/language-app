@@ -3,8 +3,9 @@ const app = express()
 const vocabulary = require('./vocabulary.js')
 const database = require('./database.js')
 const port = process.env.PORT || 3010;
-
+const path = require("path");
 var cors = require("cors");
+
 app.use(cors());
 app.use('/vocabulary', vocabulary)
 app.use(express.static("frontend/build"));

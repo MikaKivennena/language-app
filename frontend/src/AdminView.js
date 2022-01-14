@@ -31,7 +31,7 @@ function AdminView() {
     const handleClick = (thisid) => {
       fetch(url + '/' + thisid, {
           method: 'DELETE'
-      })
+      }, window.location.reload(false))
   }
 
     return (
