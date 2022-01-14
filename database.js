@@ -7,9 +7,9 @@ require("dotenv").config();
 const connection = mysql.createPool({
   connectionLimit: 30,
   host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DB
+  user: process.env.user || process.env.DB_USER,
+  password: process.env.password || process.env.DB_PASSWORD,
+  database: process.env.database || process.env.DB_DB
 })
 
 const database = "vocabulary";
