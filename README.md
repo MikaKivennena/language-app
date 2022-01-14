@@ -25,11 +25,12 @@ Or if you want to try this on your own computer you'll need to create an SQL dat
 Then just hit the basic node index.js in the root folder and npm run build npm start in the frontend folder in CMD
 
 You'll also need to create .env file where you specify the following:
+```
 DB_HOST = 
 DB_USER = 
 DB_PASSWORD = 
 DB_DB = 
-
+```
 After this you'll need to create the table and insert something into it. Here's a ready made template for it.
 ```
 CREATE TABLE vocabulary(id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
