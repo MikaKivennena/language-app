@@ -4,7 +4,6 @@ This app is designed to help people to study foreign language.
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [How to use](#how-to-use)
-* [Heroku](#heroku)
 * [Screencast](#screencast)
 * [Screenshots](#screenshots)
 
