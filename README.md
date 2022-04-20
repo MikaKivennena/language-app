@@ -45,9 +45,6 @@ INSERT INTO vocabulary(finnishWord, englishWord, category) VALUES("tee", "tea", 
 INSERT INTO vocabulary(finnishWord, englishWord, category) VALUES("omena", "apple", "fruit");
 ```
 
-## Heroku
-https://mikanlanguageapp.herokuapp.com/
-
 ## Screencast
 https://youtu.be/Fug_9iuMgTQ
 
